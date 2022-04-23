@@ -1,0 +1,46 @@
+<div id="wrapper">
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Users</h3>
+        <div class="card shadow">
+          <div class="card-header py-3 d-flex justify-content-between">
+            <p class="text-primary m-0 fw-bold">Create a new user</p>
+          </div>
+          <form class="ml-4 mr-4 mt-4 mb-4">
+            <div class="form-group">
+              <label for="Name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Name"
+                placeholder="Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Description">Description</label>
+              <textarea
+                class="form-control"
+                id="Description"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                placeholder="12"
+              />
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="button" class="btn btn-primary mr-1">Submit</button>
+              <a class="btn btn-secondary" routerLink="/users/">cancel</a>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

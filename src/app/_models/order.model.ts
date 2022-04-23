@@ -2,7 +2,7 @@
 export interface IOrder {
   id?: number;
   type?: string;
-  date?: Date;
+  date?: string;
   status?: string;
 }
 
@@ -10,7 +10,7 @@ export class Order implements IOrder {
   constructor(
     public id?: number,
     public type?: string,
-    public date?: Date,
+    public date?: string,
     public status?: string,
   ) {}
 }

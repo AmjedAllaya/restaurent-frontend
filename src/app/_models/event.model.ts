@@ -3,8 +3,8 @@ export interface IEvent{
   id?: number;
   name?: string;
   description?: string;
-  begin_date?: Date;
-  end_date?: Date;
+  beginDate?: string;
+  endDate?: string;
 }
 
 export class Event implements IEvent {
@@ -12,7 +12,7 @@ export class Event implements IEvent {
     public id?: number,
     public name?: string,
     public description?: string,
-    public begin_date?: Date,
-    public end_date?: Date,
+    public beginDate?: string,
+    public endDate?: string,
   ) {}
 }

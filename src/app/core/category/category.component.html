@@ -1,30 +1,57 @@
 <div id="wrapper">
   <div class="d-flex flex-column" id="content-wrapper">
-      <div id="content">
-          <div class="container-fluid">
-              <h3 class="text-dark mb-4">Categories</h3>
-              <div class="card shadow">
-                  <div class="card-header py-3">
-                      <p class="text-primary m-0 fw-bold">Manage all your categories</p>
-                  </div>
-                  <div class="card-body">
-                      <div class="table-responsive table" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                          <table class="table my-0" id="dataTable">
-                              <thead>
-                                  <tr>
-                                      <th>id</th>
-                                      <th>name</th>
-                                      <th>description</th>
-                                      <th>actions</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
+    <div id="content">
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Categories</h3>
+        <div class="card shadow">
+          <div class="card-header py-3 d-flex justify-content-between">
+            <p class="text-primary m-0 fw-bold">Manage all your categories</p>
+            <a href="/category/create" class="btn btn-dark btn-sm" routerLink="create">Create category</a>
+
           </div>
+          <div class="card-body">
+            <div
+              class="table-responsive table"
+              id="dataTable"
+              role="grid"
+              aria-describedby="dataTable_info"
+            >
+              <table class="table my-0" id="dataTable">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>description</th>
+                    <th>actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let item of list; let i = index">
+                    <tr>
+                      <td>{{ item.id }}</td>
+                      <td>{{ item.name }}</td>
+                      <td>{{ item.description }}</td>
+                      <td>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-primary btn-sm" (click)="editItem(i)">
+                            Edit
+                          </button>
+                          <button type="button" class="btn btn-danger btn-sm" (click)="deleteItem(i)">
+                            Delete
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
-  </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+  </div>
+  <a class="border rounded d-inline scroll-to-top" href="#page-top"
+    ><i class="fas fa-angle-up"></i
+  ></a>
 </div>
