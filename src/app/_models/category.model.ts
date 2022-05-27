@@ -1,14 +1,14 @@
 
 export interface ICategory {
   id?: number;
-  name?: string;
+  nom?: string;
   description?: string;
 }
 
 export class Category implements ICategory {
   constructor(
     public id?: number,
-    public name?: string,
+    public nom?: string,
     public description?: string,
   ) {}
 }

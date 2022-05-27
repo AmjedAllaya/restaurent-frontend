@@ -15,6 +15,7 @@ import { ManageOfferComponent } from './offer/manage-offer/manage-offer.componen
 import { ManageProductComponent } from './product/manage-product/manage-product.component';
 import { ManageOrderComponent } from './order/manage-order/manage-order.component';
 import { ManageUserComponent } from './user/manage-user/manage-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,6 @@ import { ManageUserComponent } from './user/manage-user/manage-user.component';
     ManageOrderComponent,
     ManageUserComponent,
   ],
-  imports: [CommonModule, CoreRoutingModule],
+  imports: [CommonModule, CoreRoutingModule,FormsModule,ReactiveFormsModule,],
 })
 export class CoreModule {}

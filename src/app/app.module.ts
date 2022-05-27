@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreRoutingModule } from './core/core-routing.module';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
@@ -28,7 +28,9 @@ import { CoreModule } from './core/core.module';
     CoreModule,
     CoreRoutingModule,
     FormsModule,
-    HttpClientModule,
+    ReactiveFormsModule,
+    HttpClientModule
+    
     
   ],
   providers: [authInterceptorProviders],

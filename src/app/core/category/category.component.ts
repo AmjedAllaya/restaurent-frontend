@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICategory } from 'src/app/_models/category.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Category, ICategory } from 'src/app/_models/category.model';
 import { CategoryService } from 'src/app/_services/category/category.service';
 import Swal from 'sweetalert2';
 
@@ -9,22 +10,32 @@ import Swal from 'sweetalert2';
   styleUrls: ['./category.component.css'],
 })
 export class CategoryComponent implements OnInit {
+  /* list: ICategory[] = [];  */
   list: ICategory[] = [];
-
-  constructor(private categoryService: CategoryService) {}
+  updateList:ICategory[] = [];
+  categoryForm: FormGroup;
+  constructor(private categoryService: CategoryService,private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.loadItems();
+    this.categoryForm = this.formBuilder.group({
+      nom: [''],
+      description: [''],
+    });
+
   }
 
   loadItems() {
-    this.list = [
-      { id: 1, name: 'Burger', description: 'The burger food category' },
-      { id: 2, name: 'Chicken', description: 'The chicken food category' },
-      { id: 3, name: 'Pizza', description: 'The pizza food category' },
-      { id: 4, name: 'Drinks', description: 'The drinks food category' },
-      { id: 5, name: 'Dessert', description: 'The dessert food category' },
-    ];
+  /*    this.categoryService.getCategories().subscribe(data=>{
+      this.list=data;
+    });  */ 
+      this.list = [
+      { id: 1, nom: 'Burger', description: 'The burger food category' },
+      { id: 2, nom: 'Chicken', description: 'The chicken food category' },
+      { id: 3, nom: 'Pizza', description: 'The pizza food category' },
+      { id: 4, nom: 'Drinks', description: 'The drinks food category' },
+      { id: 5, nom: 'Dessert', description: 'The dessert food category' },
+    ]; 
   }
 
   deleteItem(id: number) {
@@ -38,9 +49,22 @@ export class CategoryComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire('Deleted!', 'Your item has been deleted.', 'success');
+        this.categoryService.deleteCategory(id).subscribe(
+          data => {
+            Swal.fire('Deleted!', 'Your item has been deleted.', 'success');
+          },
+          error => {
+            Swal.fire('ERROR!', 'Your item has been not deleted.', 'error');
+          }
+        )
       }
     });
   }
-  editItem(id: number) {}
+
+  editItem(id: number,) {
+    this.categoryService.updateCategory(id,this.categoryForm.value).subscribe(
+      data =>{
+
+    })
+  }
 }
